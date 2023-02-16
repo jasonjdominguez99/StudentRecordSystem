@@ -4,25 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cd2dc44-f671-4ef7-a65c-a35a2e008edb" name="Changes" comment="Used Maven to structure project">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/studentrecordsystem/recordsystem/RecordSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/studentrecordsystem/student/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/studentrecordsystem/recordsystem/RecordSystemTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5cd2dc44-f671-4ef7-a65c-a35a2e008edb" name="Changes" comment="Added tests for deleting students">
+      <change afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/studentrecordsystem/recordsystem/RecordSystem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/studentrecordsystem/student/Student.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StudentRecordSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/StudentRecordSystem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studentrecordsystem/recordsystem/RecordSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studentrecordsystem/recordsystem/RecordSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/studentrecordsystem/recordsystem/RecordSystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/studentrecordsystem/recordsystem/RecordSystemTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +27,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -61,15 +49,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.RecordSystemTest.testAddExistingStudent">
+}</component>
+  <component name="RunManager" selected="JUnit.RecordSystemTest.testDeleteExistingStudent">
     <configuration name="RecordSystemTest.testAddExistingStudent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentRecordSystem" />
       <extension name="coverage">
@@ -102,8 +90,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RecordSystemTest.testDeleteExistingStudent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StudentRecordSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="studentrecordsystem.recordsystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="studentrecordsystem.recordsystem" />
+      <option name="MAIN_CLASS_NAME" value="studentrecordsystem.recordsystem.RecordSystemTest" />
+      <option name="METHOD_NAME" value="testDeleteExistingStudent" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RecordSystemTest.testDeleteExistingStudent" />
         <item itemvalue="JUnit.RecordSystemTest.testAddExistingStudent" />
         <item itemvalue="JUnit.RecordSystemTest.testAddValidStudent" />
       </list>
@@ -132,12 +137,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676427609994</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added tests for adding valid student and adding existing student">
+      <created>1676475552649</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676475552649</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial project setup" />
     <MESSAGE value="Used Maven to structure project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Used Maven to structure project" />
+    <MESSAGE value="Added tests for adding valid student and adding existing student" />
+    <MESSAGE value="Added tests for deleting students" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added tests for deleting students" />
   </component>
 </project>

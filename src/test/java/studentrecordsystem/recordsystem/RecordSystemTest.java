@@ -30,9 +30,30 @@ class RecordSystemTest {
     @Test
     void testAddExistingStudent() {
         Student student = new Student("John", 10199398, 80);
-        boolean addSuccessful;
-        addSuccessful = sys.add(student);
-        addSuccessful = sys.add(student);
-        assertFalse(addSuccessful);
+        sys.add(student);
+        Student duplicateStudent = new Student("John", 10199398, 80);
+        assertFalse(sys.add(student));
+    }
+
+    @Test
+    void testDeleteExistingStudent() {
+        Student student = new Student("John", 10199398, 80);
+        sys.add(student);
+        sys.delete(student);
+        assertFalse(sys.has(student));
+    }
+
+    @Test
+    void testDeleteNonExistingStudent() {
+        Student student = new Student("John", 10199398, 80);
+        assertFalse(sys.delete(student));
+    }
+
+    @Test
+    void testUpdateStudentName() {
+        Student student = new Student("John", 10199398, 80);
+        sys.add(student);
+        String newName = "Jason";
+        assertTrue(sys.updateName(student, newName));
     }
 }

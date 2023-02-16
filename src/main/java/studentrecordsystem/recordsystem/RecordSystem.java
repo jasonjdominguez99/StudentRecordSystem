@@ -11,7 +11,15 @@ public class RecordSystem {
         return true;
     }
 
+    public boolean delete(Student student) {
+        return true;
+    }
+
     public boolean has(Student student) {
+        return true;
+    }
+
+    public boolean updateName(Student student, String newName) {
         return true;
     }
 }

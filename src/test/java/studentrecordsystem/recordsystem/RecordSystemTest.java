@@ -32,7 +32,7 @@ class RecordSystemTest {
         Student student = new Student("John", 10199398, 80);
         sys.add(student);
         Student duplicateStudent = new Student("John", 10199398, 80);
-        assertFalse(sys.add(student));
+        assertFalse(sys.add(duplicateStudent));
     }
 
     @Test

@@ -55,7 +55,7 @@ class RecordSystemTest {
             "Sanchayata, 33136700, 32.2",
             "Sarah, 88888888, 0.9"
     })
-    void testAddStudent(String name, int id, float grade) {
+    void testAddValidStudent(String name, int id, float grade) {
         Student student = new Student(name, id, grade);
         sys.add(student);
 
@@ -63,6 +63,44 @@ class RecordSystemTest {
         assertEquals(sys.getStudents().get(id).getName(), name);
         assertEquals(sys.getStudents().get(id).getId(), id);
         assertEquals(sys.getStudents().get(id).getGrade(), grade);
+    }
+    @ParameterizedTest
+    @CsvSource({
+            "-1", "0", "-100000"
+    })
+    void testAddStudentWithInvalidId(int invalidId) {
+        Student student = new Student("Henry", invalidId, 80);
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> sys.add(student));
+        assertEquals(String.format("Invalid ID %d. ID must be a positive integer", invalidId), e.getMessage());
+    }
+    @ParameterizedTest
+    @CsvSource({
+            "Takeshi69",
+            "Ke$ha",
+            "tosh.o",
+            "!\"£$%^&*()"
+    })
+    void testAddStudentWithInvalidName(String invalidName) {
+        Student student = new Student(invalidName, 999, 80);
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> sys.add(student));
+        assertEquals(
+                String.format("Invalid new name %s. New name must contain alphabetic characters and spaces only",
+                        invalidName),
+                e.getMessage()
+        );
+    }
+    @ParameterizedTest
+    @CsvSource({
+            "101", "-1", "-123590", "65784932"
+    })
+    void testAddStudentWithInvalidGrade(float invalidGrade) {
+        Student student = new Student("Henry", 999, invalidGrade);
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> sys.add(student));
+        assertEquals(
+                String.format("Invalid new grade %f. New grade must be between 0 and 100 (inclusive)",
+                        invalidGrade),
+                e.getMessage()
+        );
     }
     @ParameterizedTest
     @CsvSource({
@@ -238,7 +276,9 @@ class RecordSystemTest {
             "10199398, 65784932"
     })
     void testUpdateStudentGradeWithInvalidGrade(int id, float invalidGrade) {
-        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> sys.updateGrade(id, invalidGrade));
+        IllegalArgumentException e = assertThrows(
+                IllegalArgumentException.class, () -> sys.updateGrade(id, invalidGrade)
+        );
         assertEquals(
                 String.format("Invalid new grade %f. New grade must be between 0 and 100 (inclusive)",
                               invalidGrade),

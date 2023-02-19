@@ -42,12 +42,31 @@ public class RecordSystem {
     }
 
     public void add(@NotNull Student student) throws IllegalArgumentException {
+        String name = student.getName();
+        int id = student.getId();
+        float grade = student.getGrade();
+
+        if (id < 1) {
+            throw new IllegalArgumentException(String.format("Invalid ID %d. ID must be a positive integer", id));
+        }
+        if (!Pattern.matches(nameFormat, name)) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Invalid new name %s. New name must contain alphabetic characters and spaces only",
+                            name
+                    )
+            );
+        }
+        if (grade < minGrade || grade > maxGrade) {
+            throw new IllegalArgumentException(
+                    String.format("Invalid new grade %f. New grade must be between 0 and 100 (inclusive)", grade)
+            );
+        }
         if (students.containsKey(student.getId())) {
             throw new IllegalArgumentException("Student already exists in the system");
         }
-        Student studentCopy = new Student(
-                student.getName(), student.getId(), student.getGrade()
-        );
+
+        Student studentCopy = new Student(name, id, grade);
         students.put(student.getId(), studentCopy);
     }
 

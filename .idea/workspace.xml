@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cd2dc44-f671-4ef7-a65c-a35a2e008edb" name="Changes" comment="Completed implementation of ViewAll method. Passing all unit tests">
+    <list default="true" id="5cd2dc44-f671-4ef7-a65c-a35a2e008edb" name="Changes" comment="Removed commented out line in testGetStudents">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studentrecordsystem/recordsystem/RecordSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studentrecordsystem/recordsystem/RecordSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/studentrecordsystem/recordsystem/RecordSystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/studentrecordsystem/recordsystem/RecordSystemTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/studentrecordsystem/recordsystem/RecordSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/studentrecordsystem/recordsystem/RecordSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/studentrecordsystem/recordsystem/RecordSystemTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/studentrecordsystem/recordsystem/RecordSystemTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676841617531</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Removed commented out line in testGetStudents">
+      <created>1676841689920</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1676841689920</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -212,7 +223,8 @@
     <MESSAGE value="Refactored and completed all tests excluding IO related tests" />
     <MESSAGE value="Completed implementation (except from IO and display methods). Passing all relevant unit tests" />
     <MESSAGE value="Completed implementation of ViewAll method. Passing all unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed implementation of ViewAll method. Passing all unit tests" />
+    <MESSAGE value="Removed commented out line in testGetStudents" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed commented out line in testGetStudents" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/StudentRecordSystem$RecordSystemTest.ic" NAME="RecordSystemTest Coverage Results" MODIFIED="1676841598175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -45,7 +45,6 @@ class RecordSystemTest {
         expected.put(10163270, new Student("Sanchayata", 10163270, 70));
         expected.put(10199398, new Student("John", 10199398, 57));
 
-//        assertTrue(sys.getStudents().equals(expected));
         assertEquals(sys.getStudents(), expected);
     }
 

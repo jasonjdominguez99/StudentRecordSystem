@@ -21,7 +21,7 @@ class RecordSystemTest {
         System.setOut(new PrintStream(outContent));
     }
     @AfterAll
-    static void restoreStreams() {
+    static void restoreStream() {
         System.setOut(originalOut);
     }
     @BeforeEach
@@ -31,6 +31,10 @@ class RecordSystemTest {
         existingStudents.put(10163270, new Student("Sanchayata", 10163270, 70));
         existingStudents.put(10199398, new Student("John", 10199398, 57));
         sys = new RecordSystem(existingStudents);
+    }
+    @AfterEach
+    void refreshStream() {
+        outContent.reset();
     }
 
 
@@ -244,30 +248,30 @@ class RecordSystemTest {
     }
 
 
-//    @Test
-//    void testViewAllStudents() {
-//        String expectedDisplay = """
-//                 ____________________________________________________________________________________________
-//                |                                   Student Record System                                    |
-//                |--------------------------------------------------------------------------------------------|
-//                |ID             |Name                                                                  |Grade|
-//                |--------------------------------------------------------------------------------------------|
-//                |10154707       |Jason                                                                 |82.00|
-//                |10163270       |Sanchayata                                                            |70.00|
-//                |10199398       |John                                                                  |57.00|
-//                 --------------------------------------------------------------------------------------------
-//                """;
-//        sys.viewAll();
-//        assertEquals(expectedDisplay, outContent.toString());
-//    }
-//    @Test
-//    void testViewAllStudentsWhenSystemIsEmpty() {
-//        RecordSystem rSys = new RecordSystem();
-//        rSys.viewAll();
-//        assertEquals("Student Record System is empty...", outContent.toString());
-//    }
-//
-//
+    @Test
+    void testViewAllStudents() {
+        String expectedDisplay = """
+                 ____________________________________________________________________________________________
+                |                                   Student Record System                                    |
+                |--------------------------------------------------------------------------------------------|
+                |ID             |Name                                                                  |Grade|
+                |--------------------------------------------------------------------------------------------|
+                |10154707       |Jason                                                                 |82.00|
+                |10163270       |Sanchayata                                                            |70.00|
+                |10199398       |John                                                                  |57.00|
+                 --------------------------------------------------------------------------------------------
+                """;
+        sys.viewAll();
+        assertEquals(expectedDisplay, outContent.toString());
+    }
+    @Test
+    void testViewAllStudentsWhenSystemIsEmpty() {
+        RecordSystem emptySys = new RecordSystem();
+        emptySys.viewAll();
+        assertEquals("Student Record System is empty...\n", outContent.toString());
+    }
+
+
 //    @Test
 //    void testSave() {
 //        // TODO: Implement this test

@@ -12,6 +12,19 @@ public class RecordSystem {
     private final static float maxGrade = 100;
     private final static int startId = 1;
     private final static String nameFormat = "[a-zA-Z][a-zA-Z ]+[a-zA-Z]";
+    private final static String header = """
+             ____________________________________________________________________________________________
+            |                                   Student Record System                                    |
+            """;
+    private final static String separator = """
+            |--------------------------------------------------------------------------------------------|
+            """;
+    private final static String columnHeadings = """
+            |ID             |Name                                                                  |Grade|
+            """;
+    private final static String footer = """
+             --------------------------------------------------------------------------------------------
+            """;
 
     public RecordSystem() {
         students = new HashMap<>();
@@ -132,6 +145,25 @@ public class RecordSystem {
     }
 
     public void viewAll() {
-        assert false;
+        if (students.size() == 0) {
+            System.out.print("Student Record System is empty...\n");
+        } else {
+            System.out.print(header);
+            System.out.print(separator);
+            System.out.print(columnHeadings);
+            System.out.print(separator);
+
+            for (Student student : students.values()) {
+                System.out.print("|");
+                System.out.printf(
+                        "%1$-15d|%2$-70s|%3$.2f|\n",
+                        student.getId(),
+                        student.getName(),
+                        student.getGrade()
+                );
+            }
+
+            System.out.print(footer);
+        }
     }
 }

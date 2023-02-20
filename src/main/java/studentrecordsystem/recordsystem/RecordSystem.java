@@ -3,6 +3,8 @@ package studentrecordsystem.recordsystem;
 import org.jetbrains.annotations.NotNull;
 import studentrecordsystem.student.Student;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
@@ -12,6 +14,7 @@ public class RecordSystem {
     private final static float maxGrade = 100;
     private final static int startId = 1;
     private final static String nameFormat = "[a-zA-Z][a-zA-Z ]+[a-zA-Z]";
+    private final static String fileNameFormat = "[-_a-zA-Z0-9]+";
     private final static String header = """
              ____________________________________________________________________________________________
             |                                   Student Record System                                    |
@@ -185,4 +188,21 @@ public class RecordSystem {
             System.out.print(footer);
         }
     }
+
+    public void save(String fileName) throws IOException, IllegalArgumentException {
+        if (students.size() == 0) {
+            throw new IOException("Student File System is empty");
+        }
+        if (!Pattern.matches(fileNameFormat, fileName)) {
+            throw new IllegalArgumentException(String.format("Invalid file name %s", fileName));
+        }
+        FileWriter fWriter = new FileWriter(fileName + ".txt");
+        for (Student student : students.values()) {
+            fWriter.write(String.format("%1$d,%2$s,%3$f\n", student.getId(), student.getName(), student.getGrade()));
+        }
+        fWriter.close();
+    }
+//    public void load(String fileName) throws IOException {
+//        assert false;
+//    }
 }

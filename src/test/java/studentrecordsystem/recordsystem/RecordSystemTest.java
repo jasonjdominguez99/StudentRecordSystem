@@ -5,8 +5,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import studentrecordsystem.student.Student;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import java.io.*;
+import java.nio.file.Files;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,6 +15,7 @@ class RecordSystemTest {
     private RecordSystem sys;
     private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private static final PrintStream originalOut = System.out;
+
 
     @BeforeAll
     static void setUpStream() {
@@ -311,14 +312,65 @@ class RecordSystemTest {
     }
 
 
-//    @Test
-//    void testSave() {
+    @ParameterizedTest
+    @CsvSource({
+            "test", "students", "database01", "student-data"
+    })
+    void testSaveWithValidFileName(String fileName) {
+        try {
+            sys.save(fileName);
+
+            File savedFile = new File(fileName + ".txt");
+            assertTrue(savedFile.exists());
+            assertTrue(savedFile.isFile());
+
+            String content = Files.readString(savedFile.toPath());
+            String[] lines = content.split("\n");
+
+            HashMap<Integer, Student> students = sys.getStudents();
+            assertEquals(students.size(), lines.length);
+
+            for (String line : lines) {
+                String[] studentRecord = line.split(",");
+                int id = Integer.parseInt(studentRecord[0]);
+                String name = studentRecord[1];
+                float grade = Float.parseFloat(studentRecord[2]);
+                assertEquals(students.get(id).getId(), id);
+                assertEquals(students.get(id).getName(), name);
+                assertEquals(students.get(id).getGrade(), grade);
+            }
+        } catch (IOException e) {
+            fail("Failed to save file");
+        }
+    }
+    @ParameterizedTest
+    @CsvSource({
+            "test.", "@students", "data/base01", "s*tudent-data"
+    })
+    void testSaveWithInvalidFileName(String invalidFileName) {
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> sys.save(invalidFileName));
+        assertEquals(String.format("Invalid file name %s", invalidFileName), e.getMessage());
+    }
+    @Test
+    void testSaveWhenSystemIsEmpty() {
+        RecordSystem emptySys = new RecordSystem();
+        IOException e = assertThrows(IOException.class, () -> emptySys.save("empty.txt"));
+        assertEquals("Student File System is empty", e.getMessage());
+    }
+//    @ParameterizedTest
+//    @CsvSource({
+//            "test", "students", "database01", "student-data"
+//    })
+//    void testLoadSavedFile(String fileName) {
 //        // TODO: Implement this test
 //        assert false;
 //    }
-//    @Test
-//    void testLoad() {
-//        // TODO: Implement this test
-//        assert false;
+//    @ParameterizedTest
+//    @CsvSource({
+//            "test.", "@students", "data/base01", "s*tudent-data"
+//    })
+//    void testLoadNonExistingFile(String invalidFileName) {
+//        IOException e = assertThrows(IOException.class, () -> sys.save(invalidFileName));
+//        assertEquals(String.format("Invalid filename %f.", invalidFileName), e.getMessage());
 //    }
 }

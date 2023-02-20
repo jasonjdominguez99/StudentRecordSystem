@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cd2dc44-f671-4ef7-a65c-a35a2e008edb" name="Changes" comment="Removed commented out line in testGetStudents">
+    <list default="true" id="5cd2dc44-f671-4ef7-a65c-a35a2e008edb" name="Changes" comment="Added additional test for valid id, name and grade inputs when adding student to record system">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/studentrecordsystem/recordsystem/RecordSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studentrecordsystem/recordsystem/RecordSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/studentrecordsystem/recordsystem/RecordSystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/studentrecordsystem/recordsystem/RecordSystemTest.java" afterDir="false" />
@@ -57,6 +57,14 @@
   }
 }</component>
   <component name="RunManager" selected="JUnit.RecordSystemTest">
+    <configuration name="All in StudentRecordSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StudentRecordSystem" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RecordSystemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentRecordSystem" />
       <extension name="coverage">
@@ -72,7 +80,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecordSystemTest.testUpdateStudentGrade" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RecordSystemTest.testSaveWhenSystemIsEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentRecordSystem" />
       <extension name="coverage">
         <pattern>
@@ -82,13 +90,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="studentrecordsystem.recordsystem" />
       <option name="MAIN_CLASS_NAME" value="studentrecordsystem.recordsystem.RecordSystemTest" />
-      <option name="METHOD_NAME" value="testUpdateStudentGrade(int,float)" />
+      <option name="METHOD_NAME" value="testSaveWhenSystemIsEmpty" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecordSystemTest.testUpdateStudentName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RecordSystemTest.testSaveWithInvalidFileName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentRecordSystem" />
       <extension name="coverage">
         <pattern>
@@ -98,13 +106,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="studentrecordsystem.recordsystem" />
       <option name="MAIN_CLASS_NAME" value="studentrecordsystem.recordsystem.RecordSystemTest" />
-      <option name="METHOD_NAME" value="testUpdateStudentName(int,java.lang.String)" />
+      <option name="METHOD_NAME" value="testSaveWithInvalidFileName(java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecordSystemTest.testViewAllStudents" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RecordSystemTest.testSaveWithValidFileName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentRecordSystem" />
       <extension name="coverage">
         <pattern>
@@ -114,23 +122,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="studentrecordsystem.recordsystem" />
       <option name="MAIN_CLASS_NAME" value="studentrecordsystem.recordsystem.RecordSystemTest" />
-      <option name="METHOD_NAME" value="testViewAllStudents" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RecordSystemTest.testViewAllStudentsWhenSystemIsEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StudentRecordSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="studentrecordsystem.recordsystem.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="studentrecordsystem.recordsystem" />
-      <option name="MAIN_CLASS_NAME" value="studentrecordsystem.recordsystem.RecordSystemTest" />
-      <option name="METHOD_NAME" value="testViewAllStudentsWhenSystemIsEmpty" />
+      <option name="METHOD_NAME" value="testSaveWithValidFileName(java.lang.String)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,10 +131,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.RecordSystemTest" />
-        <item itemvalue="JUnit.RecordSystemTest.testViewAllStudentsWhenSystemIsEmpty" />
-        <item itemvalue="JUnit.RecordSystemTest.testViewAllStudents" />
-        <item itemvalue="JUnit.RecordSystemTest.testUpdateStudentName" />
-        <item itemvalue="JUnit.RecordSystemTest.testUpdateStudentGrade" />
+        <item itemvalue="JUnit.All in StudentRecordSystem" />
+        <item itemvalue="JUnit.RecordSystemTest.testSaveWithValidFileName" />
+        <item itemvalue="JUnit.RecordSystemTest.testSaveWithInvalidFileName" />
+        <item itemvalue="JUnit.RecordSystemTest.testSaveWhenSystemIsEmpty" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676841689920</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added additional test for valid id, name and grade inputs when adding student to record system">
+      <created>1676843105071</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1676843105071</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -224,11 +223,13 @@
     <MESSAGE value="Completed implementation (except from IO and display methods). Passing all relevant unit tests" />
     <MESSAGE value="Completed implementation of ViewAll method. Passing all unit tests" />
     <MESSAGE value="Removed commented out line in testGetStudents" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed commented out line in testGetStudents" />
+    <MESSAGE value="Added additional test for valid id, name and grade inputs when adding student to record system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added additional test for valid id, name and grade inputs when adding student to record system" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/StudentRecordSystem$RecordSystemTest.ic" NAME="RecordSystemTest Coverage Results" MODIFIED="1676841598175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/StudentRecordSystem$RecordSystemTest.ic" NAME="RecordSystemTest Coverage Results" MODIFIED="1676898769800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>studentrecordsystem.recordsystem.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/StudentRecordSystem$All_in_StudentRecordSystem.ic" NAME="All in StudentRecordSystem Coverage Results" MODIFIED="1676898740304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

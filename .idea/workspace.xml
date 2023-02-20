@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cd2dc44-f671-4ef7-a65c-a35a2e008edb" name="Changes" comment="Added tests and implementation for saving to txt">
+    <list default="true" id="5cd2dc44-f671-4ef7-a65c-a35a2e008edb" name="Changes" comment="Added tests and implementation for load method, passing all tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/studentrecordsystem/recordsystem/RecordSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studentrecordsystem/recordsystem/RecordSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/studentrecordsystem/recordsystem/RecordSystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/studentrecordsystem/recordsystem/RecordSystemTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/studentrecordsystem/recordsystem/RecordSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/studentrecordsystem/recordsystem/RecordSystem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/studentrecordsystem/recordsystem/RecordSystemTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/studentrecordsystem/recordsystem/RecordSystemTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,14 +57,6 @@
   }
 }</component>
   <component name="RunManager" selected="JUnit.RecordSystemTest">
-    <configuration name="All in StudentRecordSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StudentRecordSystem" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RecordSystemTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentRecordSystem" />
       <extension name="coverage">
@@ -78,7 +72,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecordSystemTest.testSaveWhenSystemIsEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RecordSystemTest.testLoadSavedFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentRecordSystem" />
       <extension name="coverage">
         <pattern>
@@ -88,7 +82,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="studentrecordsystem.recordsystem" />
       <option name="MAIN_CLASS_NAME" value="studentrecordsystem.recordsystem.RecordSystemTest" />
-      <option name="METHOD_NAME" value="testSaveWhenSystemIsEmpty" />
+      <option name="METHOD_NAME" value="testLoadSavedFile(java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecordSystemTest.testLoadWithNoFileName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StudentRecordSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="studentrecordsystem.recordsystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="studentrecordsystem.recordsystem" />
+      <option name="MAIN_CLASS_NAME" value="studentrecordsystem.recordsystem.RecordSystemTest" />
+      <option name="METHOD_NAME" value="testLoadWithNoFileName" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -110,7 +120,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecordSystemTest.testSaveWithValidFileName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RecordSystemTest.testSaveWithNoFileName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StudentRecordSystem" />
       <extension name="coverage">
         <pattern>
@@ -120,7 +130,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="studentrecordsystem.recordsystem" />
       <option name="MAIN_CLASS_NAME" value="studentrecordsystem.recordsystem.RecordSystemTest" />
-      <option name="METHOD_NAME" value="testSaveWithValidFileName(java.lang.String)" />
+      <option name="METHOD_NAME" value="testSaveWithNoFileName" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -129,10 +139,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.RecordSystemTest" />
-        <item itemvalue="JUnit.RecordSystemTest.testSaveWithValidFileName" />
-        <item itemvalue="JUnit.All in StudentRecordSystem" />
+        <item itemvalue="JUnit.RecordSystemTest.testLoadWithNoFileName" />
+        <item itemvalue="JUnit.RecordSystemTest.testSaveWithNoFileName" />
         <item itemvalue="JUnit.RecordSystemTest.testSaveWithInvalidFileName" />
-        <item itemvalue="JUnit.RecordSystemTest.testSaveWhenSystemIsEmpty" />
+        <item itemvalue="JUnit.RecordSystemTest.testLoadSavedFile" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676898843408</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added deleting test save files at the end of tests for save method">
+      <created>1676927348749</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1676927348749</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -230,10 +247,12 @@
     <MESSAGE value="Removed commented out line in testGetStudents" />
     <MESSAGE value="Added additional test for valid id, name and grade inputs when adding student to record system" />
     <MESSAGE value="Added tests and implementation for saving to txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added tests and implementation for saving to txt" />
+    <MESSAGE value="Added deleting test save files at the end of tests for save method" />
+    <MESSAGE value="Added tests and implementation for load method, passing all tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added tests and implementation for load method, passing all tests" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/StudentRecordSystem$RecordSystemTest.ic" NAME="RecordSystemTest Coverage Results" MODIFIED="1676898769800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/StudentRecordSystem$RecordSystemTest.ic" NAME="RecordSystemTest Coverage Results" MODIFIED="1676931511804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>studentrecordsystem.recordsystem.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/StudentRecordSystem$All_in_StudentRecordSystem.ic" NAME="All in StudentRecordSystem Coverage Results" MODIFIED="1676898740304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

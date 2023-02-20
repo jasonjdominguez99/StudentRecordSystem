@@ -60,10 +60,11 @@ class RecordSystemTest {
         Student student = new Student(name, id, grade);
         sys.add(student);
 
-        assertTrue(sys.getStudents().containsKey(id));
-        assertEquals(sys.getStudents().get(id).getName(), name);
-        assertEquals(sys.getStudents().get(id).getId(), id);
-        assertEquals(sys.getStudents().get(id).getGrade(), grade);
+        HashMap<Integer, Student> students = sys.getStudents();
+        assertTrue(students.containsKey(id));
+        assertEquals(students.get(id).getName(), name);
+        assertEquals(students.get(id).getId(), id);
+        assertEquals(students.get(id).getGrade(), grade);
     }
     @ParameterizedTest
     @CsvSource({
@@ -356,25 +357,82 @@ class RecordSystemTest {
         assertEquals(String.format("Invalid file name %s", invalidFileName), e.getMessage());
     }
     @Test
+    void testSaveWithNoFileName() {
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> sys.save(""));
+        assertEquals("Invalid file name \"\", no file name given", e.getMessage());
+    }
+    @Test
     void testSaveWhenSystemIsEmpty() {
         RecordSystem emptySys = new RecordSystem();
         IOException e = assertThrows(IOException.class, () -> emptySys.save("empty.txt"));
         assertEquals("Student File System is empty", e.getMessage());
     }
-//    @ParameterizedTest
-//    @CsvSource({
-//            "test", "students", "database01", "student-data"
-//    })
-//    void testLoadSavedFile(String fileName) {
-//        // TODO: Implement this test
-//        assert false;
-//    }
-//    @ParameterizedTest
-//    @CsvSource({
-//            "test.", "@students", "data/base01", "s*tudent-data"
-//    })
-//    void testLoadNonExistingFile(String invalidFileName) {
-//        IOException e = assertThrows(IOException.class, () -> sys.save(invalidFileName));
-//        assertEquals(String.format("Invalid filename %f.", invalidFileName), e.getMessage());
-//    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "test", "students", "database01", "student-data"
+    })
+    void testLoadSavedFile(String fileName) {
+        try {
+            // Save sys to file
+            File savedFile = new File(fileName + ".txt");
+            FileWriter fWriter = new FileWriter(savedFile);
+            for (Student student : sys.getStudents().values()) {
+                fWriter.write(String.format(
+                        "%1$d,%2$s,%3$f\n",
+                        student.getId(),
+                        student.getName(),
+                        student.getGrade()
+                ));
+            }
+            fWriter.close();
+
+            RecordSystem loadedSys = new RecordSystem();
+            loadedSys.load(fileName);
+
+            HashMap<Integer, Student> students = sys.getStudents();
+            HashMap<Integer, Student> loadedStudents = loadedSys.getStudents();
+            assertEquals(students.size(), loadedStudents.size());
+
+            for (var entry : loadedStudents.entrySet()) {
+                int id = entry.getKey();
+                Student student = entry.getValue();
+
+                assertTrue(students.containsKey(id));
+                assertEquals(students.get(id).getName(), student.getName());
+                assertEquals(students.get(id).getId(), student.getId());
+                assertEquals(students.get(id).getGrade(), student.getGrade());
+            }
+
+            if (!savedFile.delete()) {
+                throw new IOException("Failed to delete test saved file.");
+            }
+        } catch (IOException e) {
+            fail(e.getMessage());
+        }
+
+    }
+    @ParameterizedTest
+    @CsvSource({
+            "test.", "@students", "data/base01", "s*tudent-data"
+    })
+    void testLoadWithInvalidFileName(String invalidFileName) {
+        IllegalArgumentException e = assertThrows(
+                IllegalArgumentException.class, () -> sys.load(invalidFileName)
+        );
+        assertEquals(String.format("Invalid file name %s", invalidFileName), e.getMessage());
+    }
+    @Test
+    void testLoadWithNoFileName() {
+        IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> sys.load(""));
+        assertEquals("Invalid file name \"\", no file name given", e.getMessage());
+    }
+    @Test
+    void testLoadMissingFile() {
+        String missingFileName = "missing-file";
+        FileNotFoundException e = assertThrows(
+                FileNotFoundException.class, () -> sys.load(missingFileName)
+        );
+        assertEquals("File " + missingFileName + ".txt is missing", e.getMessage());
+    }
 }

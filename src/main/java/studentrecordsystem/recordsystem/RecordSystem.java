@@ -3,8 +3,11 @@ package studentrecordsystem.recordsystem;
 import org.jetbrains.annotations.NotNull;
 import studentrecordsystem.student.Student;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
@@ -193,6 +196,9 @@ public class RecordSystem {
         if (students.size() == 0) {
             throw new IOException("Student File System is empty");
         }
+        if (fileName.equals("")) {
+            throw new IllegalArgumentException("Invalid file name \"\", no file name given");
+        }
         if (!Pattern.matches(fileNameFormat, fileName)) {
             throw new IllegalArgumentException(String.format("Invalid file name %s", fileName));
         }
@@ -202,7 +208,29 @@ public class RecordSystem {
         }
         fWriter.close();
     }
-//    public void load(String fileName) throws IOException {
-//        assert false;
-//    }
+    public void load(String fileName) throws IOException, IllegalArgumentException {
+        if (fileName.equals("")) {
+            throw new IllegalArgumentException("Invalid file name \"\", no file name given");
+        }
+        if (!Pattern.matches(fileNameFormat, fileName)) {
+            throw new IllegalArgumentException(String.format("Invalid file name %s", fileName));
+        }
+
+        File file = new File(fileName + ".txt");
+        if (!file.exists()) {
+            throw new FileNotFoundException("File " + fileName + ".txt is missing");
+        }
+
+        String content = Files.readString(file.toPath());
+        String[] lines = content.split("\n");
+
+        for (String line : lines) {
+            String[] studentRecord = line.split(",");
+            int id = Integer.parseInt(studentRecord[0]);
+            String name = studentRecord[1];
+            float grade = Float.parseFloat(studentRecord[2]);
+
+            students.put(id, new Student(name, id, grade));
+        }
+    }
 }

@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cd2dc44-f671-4ef7-a65c-a35a2e008edb" name="Changes" comment="Added additional test for valid id, name and grade inputs when adding student to record system">
+    <list default="true" id="5cd2dc44-f671-4ef7-a65c-a35a2e008edb" name="Changes" comment="Added tests and implementation for saving to txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/studentrecordsystem/recordsystem/RecordSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/studentrecordsystem/recordsystem/RecordSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/studentrecordsystem/recordsystem/RecordSystemTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/studentrecordsystem/recordsystem/RecordSystemTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/studentrecordsystem/recordsystem/RecordSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/studentrecordsystem/recordsystem/RecordSystem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/studentrecordsystem/recordsystem/RecordSystemTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/studentrecordsystem/recordsystem/RecordSystemTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,8 +129,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.RecordSystemTest" />
-        <item itemvalue="JUnit.All in StudentRecordSystem" />
         <item itemvalue="JUnit.RecordSystemTest.testSaveWithValidFileName" />
+        <item itemvalue="JUnit.All in StudentRecordSystem" />
         <item itemvalue="JUnit.RecordSystemTest.testSaveWithInvalidFileName" />
         <item itemvalue="JUnit.RecordSystemTest.testSaveWhenSystemIsEmpty" />
       </list>
@@ -210,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676843105071</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added tests and implementation for saving to txt">
+      <created>1676898843408</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1676898843408</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -224,7 +229,8 @@
     <MESSAGE value="Completed implementation of ViewAll method. Passing all unit tests" />
     <MESSAGE value="Removed commented out line in testGetStudents" />
     <MESSAGE value="Added additional test for valid id, name and grade inputs when adding student to record system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added additional test for valid id, name and grade inputs when adding student to record system" />
+    <MESSAGE value="Added tests and implementation for saving to txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added tests and implementation for saving to txt" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/StudentRecordSystem$RecordSystemTest.ic" NAME="RecordSystemTest Coverage Results" MODIFIED="1676898769800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

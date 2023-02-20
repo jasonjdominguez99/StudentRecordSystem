@@ -339,8 +339,12 @@ class RecordSystemTest {
                 assertEquals(students.get(id).getName(), name);
                 assertEquals(students.get(id).getGrade(), grade);
             }
+
+            if (!savedFile.delete()) {
+                throw new IOException("Failed to delete test saved file.");
+            }
         } catch (IOException e) {
-            fail("Failed to save file");
+            fail(e.getMessage());
         }
     }
     @ParameterizedTest
